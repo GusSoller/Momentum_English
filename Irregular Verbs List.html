@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Irregular Verbs Exercise</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  table { border-collapse: collapse; width: 100%; max-width: 1000px; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+  th { background-color: #f2f2f2; }
+  input[type="text"] { width: 90%; padding: 4px; font-size: 1em; }
+  .correct { color: green; font-weight: bold; }
+  .wrong { color: red; font-weight: bold; }
+  button.check-btn { padding: 5px 10px; font-size: 0.9em; cursor: pointer; }
+</style>
+</head>
+<body>
+<h2>Irregular Verbs Exercise</h2>
+<table id="verbs-table">
+  <thead>
+    <tr>
+      <th>Infinitive</th>
+      <th>Past</th>
+      <th>Past Participle</th>
+      <th>Translation (PT-BR)</th>
+      <th>Check Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Rows inserted by script -->
+  </tbody>
+</table>
+
+<script>
+// List of irregular verbs: [infinitive, past, past participle, translation]
+const irregularVerbs = [
+  ["abide", "abode/abided", "abode/abided", "suportar, aguentar"],
+  ["arise", "arose", "arisen", "surgir"],
+  ["awake", "awoke", "awoken", "acordar"],
+  ["be", "was/were", "been", "ser/estar"],
+  ["bear", "bore", "borne/born", "suportar, dar à luz"],
+  ["beat", "beat", "beaten", "bater"],
+  ["become", "became", "become", "tornar-se"],
+  ["begin", "began", "begun", "começar"],
+  ["bend", "bent", "bent", "dobrar"],
+  ["bet", "bet", "bet", "apostar"],
+  ["bind", "bound", "bound", "ligar, amarrar"],
+  ["bite", "bit", "bitten", "morder"],
+  ["bleed", "bled", "bled", "sangrar"],
+  ["blow", "blew", "blown", "soprar"],
+  ["break", "broke", "broken", "quebrar"],
+  ["breed", "bred", "bred", "criar (animais)"],
+  ["bring", "brought", "brought", "trazer"],
+  ["broadcast", "broadcast", "broadcast", "transmitir"],
+  ["build", "built", "built", "construir"],
+  ["burn", "burnt/burned", "burnt/burned", "queimar"],
+  ["burst", "burst", "burst", "explodir"],
+  ["buy", "bought", "bought", "comprar"],
+  ["cast", "cast", "cast", "lançar"],
+  ["catch", "caught", "caught", "pegar"],
+  ["choose", "chose", "chosen", "escolher"],
+  ["cling", "clung", "clung", "agarrar-se"],
+  ["come", "came", "come", "vir"],
+  ["cost", "cost", "cost", "custar"],
+  ["creep", "crept", "crept", "rastejar"],
+  ["cut", "cut", "cut", "cortar"],
+  ["deal", "dealt", "dealt", "negociar, lidar"],
+  ["dig", "dug", "dug", "cavar"],
+  ["do", "did", "done", "fazer"],
+  ["draw", "drew", "drawn", "desenhar"],
+  ["dream", "dreamt/dreamed", "dreamt/dreamed", "sonhar"],
+  ["drink", "drank", "drunk", "beber"],
+  ["drive", "drove", "driven", "dirigir"],
+  ["eat", "ate", "eaten", "comer"],
+  ["fall", "fell", "fallen", "cair"],
+  ["feed", "fed", "fed", "alimentar"],
+  ["feel", "felt", "felt", "sentir"],
+  ["fight", "fought", "fought", "lutar"],
+  ["find", "found", "found", "encontrar"],
+  ["fit", "fit/fitted", "fit/fitted", "servir, encaixar"],
+  ["flee", "fled", "fled", "fugir"],
+  ["fling", "flung", "flung", "arremessar"],
+  ["fly", "flew", "flown", "voar"],
+  ["forbid", "forbade", "forbidden", "proibir"],
+  ["forget", "forgot", "forgotten", "esquecer"],
+  ["forgive", "forgave", "forgiven", "perdoar"],
+  ["forsake", "forsook", "forsaken", "abandonar"],
+  ["freeze", "froze", "frozen", "congelar"],
+  ["get", "got", "gotten/got", "obter"],
+  ["give", "gave", "given", "dar"],
+  ["go", "went", "gone", "ir"],
+  ["grow", "grew", "grown", "crescer"],
+  ["hang", "hung", "hung", "pendurar"],
+  ["have", "had", "had", "ter"],
+  ["hear", "heard", "heard", "ouvir"],
+  ["hide", "hid", "hidden", "esconder"],
+  ["hit", "hit", "hit", "bater"],
+  ["hold", "held", "held", "segurar"],
+  ["hurt", "hurt", "hurt", "machucar"],
+  ["keep", "kept", "kept", "manter"],
+  ["kneel", "knelt/kneeled", "knelt/kneeled", "ajoelhar-se"],
+  ["know", "knew", "known", "saber/conhecer"],
+  ["lay", "laid", "laid", "colocar deitado"],
+  ["lead", "led", "led", "liderar"],
+  ["lean", "leant/leaned", "leant/leaned", "inclinar-se"],
+  ["leap", "leapt/leaped", "leapt/leaped", "saltar"],
+  ["leave", "left", "left", "deixar/partir"],
+  ["lend", "lent", "lent", "emprestar"],
+  ["let", "let", "let", "deixar, permitir"],
+  ["lie", "lay", "lain", "deitar-se"],
+  ["light", "lit/lighted", "lit/lighted", "acender"],
+  ["lose", "lost", "lost", "perder"],
+  ["make", "made", "made", "fazer"],
+  ["mean", "meant", "meant", "significar"],
+  ["meet", "met", "met", "encontrar"],
+  ["pay", "paid", "paid", "pagar"],
+  ["put", "put", "put", "colocar"],
+  ["read", "read", "read", "ler"],
+  ["ride", "rode", "ridden", "andar/montar"],
+  ["ring", "rang", "rung", "tocar (campainha)"],
+  ["rise", "rose", "risen", "levantar-se"],
+  ["run", "ran", "run", "correr"],
+  ["say", "said", "said", "dizer"],
+  ["see", "saw", "seen", "ver"],
+  ["sell", "sold", "sold", "vender"],
+  ["send", "sent", "sent", "enviar"],
+  ["set", "set", "set", "colocar/ajustar"],
+  ["shake", "shook", "shaken", "sacudir"],
+  ["shine", "shone", "shone", "brilhar"],
+  ["shoot", "shot", "shot", "atirar"],
+  ["show", "showed", "shown", "mostrar"],
+  ["shut", "shut", "shut", "fechar"],
+  ["sing", "sang", "sung", "cantar"],
+  ["sink", "sank", "sunk", "afundar"],
+  ["sit", "sat", "sat", "sentar"],
+  ["sleep", "slept", "slept", "dormir"],
+  ["slide", "slid", "slid", "escorregar"],
+  ["speak", "spoke", "spoken", "falar"],
+  ["spend", "spent", "spent", "gastar"],
+  ["spill", "spilt/spilled", "spilt/spilled", "derramar"],
+  ["spin", "spun", "spun", "girar"],
+  ["spit", "spat", "spat", "cuspir"],
+  ["split", "split", "split", "dividir"],
+  ["spread", "spread", "spread", "espalhar"],
+  ["stand", "stood", "stood", "ficar de pé"],
+  ["steal", "stole", "stolen", "roubar"],
+  ["stick", "stuck", "stuck", "grudar"],
+  ["sting", "stung", "stung", "picar"],
+  ["strike", "struck", "struck", "bater, atacar"],
+  ["swear", "swore", "sworn", "jurar"],
+  ["sweep", "swept", "swept", "varrer"],
+  ["swim", "swam", "swum", "nadar"],
+  ["take", "took", "taken", "pegar/levar"],
+  ["teach", "taught", "taught", "ensinar"],
+  ["tear", "tore", "torn", "rasgar"],
+  ["tell", "told", "told", "contar/dizer"],
+  ["think", "thought", "thought", "pensar"],
+  ["throw", "threw", "thrown", "arremessar"],
+  ["understand", "understood", "understood", "entender"],
+  ["wake", "woke", "woken", "acordar"],
+  ["wear", "wore", "worn", "vestir"],
+  ["win", "won", "won", "vencer"],
+  ["write", "wrote", "written", "escrever"]
+];
+
+// Insert rows dynamically
+const tbody = document.querySelector("#verbs-table tbody");
+irregularVerbs.forEach((verb, i) => {
+  const [inf, past, part, trans] = verb;
+  const row = document.createElement("tr");
+
+  // Infinitive (not editable)
+  const tdInf = document.createElement("td");
+  tdInf.textContent = inf;
+  row.appendChild(tdInf);
+
+  // Past input
+  const tdPast = document.createElement("td");
+  const inputPast = document.createElement("input");
+  inputPast.type = "text";
+  inputPast.id = `past_${i}`;
+  inputPast.autocomplete = "off";
+  tdPast.appendChild(inputPast);
+  row.appendChild(tdPast);
+
+  // Past participle input
+  const tdPart = document.createElement("td");
+  const inputPart = document.createElement("input");
+  inputPart.type = "text";
+  inputPart.id = `part_${i}`;
+  inputPart.autocomplete = "off";
+  tdPart.appendChild(inputPart);
+  row.appendChild(tdPart);
+
+  // Translation (not editable)
+  const tdTrans = document.createElement("td");
+  tdTrans.textContent = trans;
+  row.appendChild(tdTrans);
+
+  // Check answer button for this row
+  const tdBtn = document.createElement("td");
+  const btn = document.createElement("button");
+  btn.textContent = "Check Answer";
+  btn.className = "check-btn";
+  btn.onclick = () => checkAnswer(i);
+  tdBtn.appendChild(btn);
+  row.appendChild(tdBtn);
+
+  tbody.appendChild(row);
+});
+
+// Normalize input: lowercase, trim, replace spaces with slashes, remove duplicate slashes
+function normalizeInput(input) {
+  return input.toLowerCase().trim().replace(/\s+/g, "/").replace(/\/+/g, "/");
+}
+
+// Check a single row's answers
+function checkAnswer(i) {
+  const pastInput = document.getElementById(`past_${i}`);
+  const partInput = document.getElementById(`part_${i}`);
+
+  let userPast = normalizeInput(pastInput.value);
+  let userPart = normalizeInput(partInput.value);
+
+  const correctPastForms = irregularVerbs[i][1].toLowerCase().split("/");
+  const correctPartForms = irregularVerbs[i][2].toLowerCase().split("/");
+
+  if (irregularVerbs[i][0] === "be") {
+    // For "to be" accept if user input contains both "was" and "were" (in any order),
+    // or if user inputs only one correct form
+    const userPastParts = userPast.split("/");
+    if (
+      (userPastParts.includes("was") && userPastParts.includes("were")) ||
+      (userPastParts.length === 1 && correctPastForms.includes(userPastParts[0]))
+    ) {
+      pastInput.className = "correct";
+      pastInput.value = irregularVerbs[i][1]; // "was/were"
+    } else {
+      pastInput.className = "wrong";
+      pastInput.value = "Wrong";
+    }
+  } else {
+    if (correctPastForms.includes(userPast) && userPast !== "") {
+      pastInput.className = "correct";
+      pastInput.value = irregularVerbs[i][1];
+    } else {
+      pastInput.className = "wrong";
+      pastInput.value = "Wrong";
+    }
+  }
+
+  if (correctPartForms.includes(userPart) && userPart !== "") {
+    partInput.className = "correct";
+    partInput.value = irregularVerbs[i][2];
+  } else {
+    partInput.className = "wrong";
+    partInput.value = "Wrong";
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Past Tense Verbs Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .sentence {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        select {
+            padding: 5px;
+            margin: 0 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: white;
+        }
+        select:focus {
+            outline: none;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .wrong {
+            color: red;
+            font-weight: bold;
+        }
+        .right-answer {
+            color: blue;
+        }
+        #stats {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Past Tense Verbs Exercise</h1>
+    <p>Complete each sentence by selecting the correct verb form from the dropdown menus.</p>
+    
+    <div id="exercises">
+        <!-- Sentences will be inserted here by JavaScript -->
+    </div>
+    
+    <div id="stats">
+        <h2>Your Results</h2>
+        <p>Correct answers: <span id="correct-count">0</span> out of <span id="total-questions">50</span></p>
+        <p>Percentage: <span id="percentage">0</span>%</p>
+    </div>
+
+    <script>
+        const sentences = [
+            { sentence: "She ___ at school yesterday but she ___ any classes.", options1: ["was", "were", "is"], options2: ["didn't have", "don't have", "not have"], answer1: "was", answer2: "didn't have" },
+            { sentence: "They ___ happy because they ___ the game.", options1: ["were", "was", "are"], options2: ["won", "win", "winned"], answer1: "were", answer2: "won" },
+            { sentence: "I ___ tired so I ___ early last night.", options1: ["was", "were", "am"], options2: ["slept", "sleep", "sleeped"], answer1: "was", answer2: "slept" },
+            { sentence: "He ___ a doctor but he ___ at the hospital yesterday.", options1: ["was", "were", "is"], options2: ["didn't work", "don't work", "not work"], answer1: "was", answer2: "didn't work" },
+            { sentence: "We ___ hungry but we ___ any food.", options1: ["were", "was", "are"], options2: ["didn't have", "don't have", "not have"], answer1: "were", answer2: "didn't have" },
+            { sentence: "It ___ cold yesterday so we ___ inside.", options1: ["was", "were", "is"], options2: ["stayed", "stay", "stayed"], answer1: "was", answer2: "stayed" },
+            { sentence: "You ___ my friend and you always ___ me.", options1: ["were", "was", "are"], options2: ["helped", "help", "helped"], answer1: "were", answer2: "helped" },
+            { sentence: "The dog ___ big but it ___ much.", options1: ["was", "were", "is"], options2: ["didn't eat", "don't eat", "not eat"], answer1: "was", answer2: "didn't eat" },
+            { sentence: "She ___ at home yesterday because she ___ sick.", options1: ["was", "were", "is"], options2: ["felt", "feel", "feeled"], answer1: "was", answer2: "felt" },
+            { sentence: "They ___ students and they ___ hard last semester.", options1: ["were", "was", "are"], options2: ["studied", "study", "studied"], answer1: "were", answer2: "studied" },
+            { sentence: "I ___ not ready because I ___ my keys.", options1: ["was", "were", "am"], options2: ["couldn't find", "can't find", "not find"], answer1: "was", answer2: "couldn't find" },
+            { sentence: "The store ___ open but it ___ many customers.", options1: ["was", "were", "is"], options2: ["didn't have", "don't have", "not have"], answer1: "was", answer2: "didn't have" },
+            { sentence: "We ___ excited for our trip so we ___ packing early.", options1: ["were", "was", "are"], options2: ["started", "start", "started"], answer1: "were", answer2: "started" },
+            { sentence: "He ___ my brother but he ___ with me last year.", options1: ["was", "were", "is"], options2: ["didn't live", "don't live", "not live"], answer1: "was", answer2: "didn't live" },
+            { sentence: "The children ___ noisy because they ___ bored.", options1: ["were", "was", "are"], options2: ["were", "was", "are"], answer1: "were", answer2: "were" },
+            { sentence: "You ___ very kind and you always ___ thoughtful.", options1: ["were", "was", "are"], options2: ["were", "was", "are"], answer1: "were", answer2: "were" },
+            { sentence: "The movie ___ interesting but it ___ too long.", options1: ["was", "were", "is"], options2: ["was", "were", "is"], answer1: "was", answer2: "was" },
+            { sentence: "I ___ sure that he ___ the answer.", options1: ["was", "were", "am"], options2: ["knew", "know", "knowed"], answer1: "was", answer2: "knew" },
+            { sentence: "The flowers ___ beautiful and they ___ wonderful.", options1: ["were", "was", "are"], options2: ["smelled", "smell", "smelled"], answer1: "were", answer2: "smelled" },
+            { sentence: "She ___ a good singer but she ___ in public.", options1: ["was", "were", "is"], options2: ["didn't sing", "don't sing", "not sing"], answer1: "was", answer2: "didn't sing" },
+            { sentence: "The phone ___ ringing but nobody ___ it.", options1: ["was", "were", "is"], options2: ["answered", "answer", "answered"], answer1: "was", answer2: "answered" },
+            { sentence: "We ___ late because our car ___ working.", options1: ["were", "was", "are"], options2: ["wasn't", "weren't", "am not"], answer1: "were", answer2: "wasn't" },
+            { sentence: "The books ___ on the shelf but they ___ organized.", options1: ["were", "was", "are"], options2: ["weren't", "wasn't", "am not"], answer1: "were", answer2: "weren't" },
+            { sentence: "You ___ right and I ___ you.", options1: ["were", "was", "are"], options2: ["believed", "believe", "believed"], answer1: "were", answer2: "believed" },
+            { sentence: "The water ___ cold so we ___ swimming.", options1: ["was", "were", "is"], options2: ["didn't go", "don't go", "not go"], answer1: "was", answer2: "didn't go" },
+            { sentence: "They ___ at the park but they ___ having fun.", options1: ["were", "was", "are"], options2: ["weren't", "wasn't", "am not"], answer1: "were", answer2: "weren't" },
+            { sentence: "I ___ busy yesterday so I ___ come to the party.", options1: ["was", "were", "am"], options2: ["couldn't", "cannot", "don't can"], answer1: "was", answer2: "couldn't" },
+            { sentence: "The test ___ difficult but you ___ it.", options1: ["was", "were", "is"], options2: ["passed", "pass", "passed"], answer1: "was", answer2: "passed" },
+            { sentence: "She ___ my neighbor but we ___ often.", options1: ["was", "were", "is"], options2: ["didn't talk", "don't talk", "not talk"], answer1: "was", answer2: "didn't talk" },
+            { sentence: "The weather ___ nice yesterday so we ___ outside.", options1: ["was", "were", "is"], options2: ["ate", "eat", "eated"], answer1: "was", answer2: "ate" },
+            { sentence: "You ___ very tall when you ___ younger.", options1: ["were", "was", "are"], options2: ["were", "was", "are"], answer1: "were", answer2: "were" },
+            { sentence: "The cat ___ on the chair but it ___ sleeping.", options1: ["was", "were", "is"], options2: ["wasn't", "weren't", "am not"], answer1: "was", answer2: "wasn't" },
+            { sentence: "We ___ from Canada but we ___ French.", options1: ["were", "was", "are"], options2: ["didn't speak", "don't speak", "not speak"], answer1: "were", answer2: "didn't speak" },
+            { sentence: "He ___ a chef but he ___ at home.", options1: ["was", "were", "is"], options2: ["didn't cook", "don't cook", "not cook"], answer1: "was", answer2: "didn't cook" },
+            { sentence: "The tickets ___ expensive but they ___ available.", options1: ["were", "was", "are"], options2: ["were", "was", "are"], answer1: "were", answer2: "were" },
+            { sentence: "I ___ sorry but I ___ your name.", options1: ["was", "were", "am"], options2: ["didn't remember", "don't remember", "not remember"], answer1: "was", answer2: "didn't remember" },
+            { sentence: "The meeting ___ important so we ___ late.", options1: ["was", "were", "is"], options2: ["couldn't be", "can't be", "don't can be"], answer1: "was", answer2: "couldn't be" },
+            { sentence: "They ___ my parents but they ___ together anymore.", options1: ["were", "was", "are"], options2: ["weren't", "wasn't", "am not"], answer1: "were", answer2: "weren't" },
+            { sentence: "The shoes ___ comfortable but they ___ good.", options1: ["were", "was", "are"], options2: ["didn't look", "don't look", "not look"], answer1: "were", answer2: "didn't look" },
+            { sentence: "She ___ at work yesterday but she ___ busy.", options1: ["was", "were", "is"], options2: ["wasn't", "weren't", "am not"], answer1: "was", answer2: "wasn't" },
+            { sentence: "You ___ very smart and you always ___ the right thing.", options1: ["were", "was", "are"], options2: ["did", "do", "doed"], answer1: "were", answer2: "did" },
+            { sentence: "The food ___ ready but we ___ eat yet.", options1: ["was", "were", "is"], options2: ["couldn't", "cannot", "don't can"], answer1: "was", answer2: "couldn't" },
+            { sentence: "I ___ not sure if he ___ the truth.", options1: ["was", "were", "am"], options2: ["was telling", "were telling", "am telling"], answer1: "was", answer2: "was telling" },
+            { sentence: "The students ___ quiet because they ___ the test.", options1: ["were", "was", "are"], options2: ["were taking", "was taking", "am taking"], answer1: "were", answer2: "were taking" },
+            { sentence: "It ___ a secret so we ___ tell anyone.", options1: ["was", "were", "is"], options2: ["couldn't", "cannot", "don't can"], answer1: "was", answer2: "couldn't" },
+            { sentence: "They ___ in the garden but they ___ anything.", options1: ["were", "was", "are"], options2: ["weren't planting", "wasn't planting", "am not planting"], answer1: "were", answer2: "weren't planting" },
+            { sentence: "The baby ___ asleep but he ___ quietly.", options1: ["was", "were", "is"], options2: ["wasn't sleeping", "weren't sleeping", "am not sleeping"], answer1: "was", answer2: "wasn't sleeping" },
+            { sentence: "We ___ at the restaurant but we ___ anything.", options1: ["were", "was", "are"], options2: ["didn't order", "don't order", "not order"], answer1: "were", answer2: "didn't order" },
+            { sentence: "He ___ a policeman but he ___ a uniform yesterday.", options1: ["was", "were", "is"], options2: ["wasn't wearing", "weren't wearing", "am not wearing"], answer1: "was", answer2: "wasn't wearing" },
+            { sentence: "The windows ___ open but it ___ cold outside.", options1: ["were", "was", "are"], options2: ["was", "were", "am"], answer1: "were", answer2: "was" },
+            { sentence: "You ___ my best friend and you always ___ there for me.", options1: ["were", "was", "are"], options2: ["were", "was", "am"], answer1: "were", answer2: "were" }
+        ];
+
+        const exercisesContainer = document.getElementById('exercises');
+        let correctAnswers = 0;
+
+        // Create exercise elements
+        sentences.forEach((item, index) => {
+            const exerciseDiv = document.createElement('div');
+            exerciseDiv.className = 'sentence';
+            exerciseDiv.id = `exercise-${index}`;
+            
+            // Split the sentence at the blanks
+            const parts = item.sentence.split('___');
+            
+            // Create select elements for the blanks
+            const select1 = document.createElement('select');
+            select1.id = `select1-${index}`;
+            
+            // Add default dash option
+            const defaultOption1 = document.createElement('option');
+            defaultOption1.value = '';
+            defaultOption1.textContent = '-';
+            defaultOption1.selected = true;
+            defaultOption1.disabled = true;
+            select1.appendChild(defaultOption1);
+            
+            // Add answer options
+            item.options1.forEach(option => {
+                const opt = document.createElement('option');
+                opt.value = option;
+                opt.textContent = option;
+                select1.appendChild(opt);
+            });
+            
+            const select2 = document.createElement('select');
+            select2.id = `select2-${index}`;
+            
+            // Add default dash option
+            const defaultOption2 = document.createElement('option');
+            defaultOption2.value = '';
+            defaultOption2.textContent = '-';
+            defaultOption2.selected = true;
+            defaultOption2.disabled = true;
+            select2.appendChild(defaultOption2);
+            
+            // Add answer options
+            item.options2.forEach(option => {
+                const opt = document.createElement('option');
+                opt.value = option;
+                opt.textContent = option;
+                select2.appendChild(opt);
+            });
+            
+            // Create check button
+            const button = document.createElement('button');
+            button.textContent = 'Check Answer';
+            button.onclick = () => checkAnswer(index);
+            
+            // Create result span
+            const resultSpan = document.createElement('span');
+            resultSpan.id = `result-${index}`;
+            resultSpan.style.marginLeft = '10px';
+            
+            // Build the sentence with dropdowns
+            exerciseDiv.innerHTML = '';
+            exerciseDiv.appendChild(document.createTextNode(parts[0]));
+            exerciseDiv.appendChild(select1);
+            exerciseDiv.appendChild(document.createTextNode(parts[1]));
+            exerciseDiv.appendChild(select2);
+            exerciseDiv.appendChild(document.createTextNode(parts[2]));
+            exerciseDiv.appendChild(button);
+            exerciseDiv.appendChild(resultSpan);
+            
+            exercisesContainer.appendChild(exerciseDiv);
+        });
+
+        function checkAnswer(index) {
+            const select1 = document.getElementById(`select1-${index}`);
+            const select2 = document.getElementById(`select2-${index}`);
+            const resultSpan = document.getElementById(`result-${index}`);
+            const correct1 = sentences[index].answer1;
+            const correct2 = sentences[index].answer2;
+            
+            const userAnswer1 = select1.value;
+            const userAnswer2 = select2.value;
+            
+            // Check if any option is still the default dash
+            if (userAnswer1 === '' || userAnswer2 === '') {
+                resultSpan.innerHTML = '<span class="wrong">Please select an answer for both blanks</span>';
+                return;
+            }
+            
+            if (userAnswer1 === correct1 && userAnswer2 === correct2) {
+                resultSpan.innerHTML = '<span class="correct">Correct</span>';
+                correctAnswers++;
+            } else {
+                let feedback = '<span class="wrong">Wrong</span>. ';
+                if (userAnswer1 !== correct1) {
+                    feedback += `First blank should be <span class="right-answer">${correct1}</span>. `;
+                }
+                if (userAnswer2 !== correct2) {
+                    feedback += `Second blank should be <span class="right-answer">${correct2}</span>.`;
+                }
+                resultSpan.innerHTML = feedback;
+            }
+            
+            // Update statistics
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('correct-count').textContent = correctAnswers;
+            const percentage = Math.round((correctAnswers / sentences.length) * 100);
+            document.getElementById('percentage').textContent = percentage;
+        }
+    </script>
+</body>
+</html>

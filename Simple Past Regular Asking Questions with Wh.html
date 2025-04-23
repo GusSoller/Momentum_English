@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Past Regular Verbs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .exercise {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+    .result {
+      font-weight: bold;
+      margin: 3px 0;
+      padding: 3px;
+    }
+    .correct {
+      color: #2E8B57;
+    }
+    .wrong {
+      color: #FF4500;
+    }
+    .answer {
+      color: #4682B4;
+      font-weight: normal;
+    }
+    .verb-hint {
+      color: #B22222;
+      font-weight: bold;
+    }
+    .stats {
+      margin-top: 30px;
+      padding: 10px;
+      background-color: #f0f8ff;
+      border-radius: 5px;
+    }
+    input {
+      padding: 5px;
+      margin: 3px 0;
+    }
+    input.affirmative {
+      width: 200px;
+    }
+    input.interrogative, input.negative, input.wh-question {
+      width: 300px;
+    }
+    button.checkBtn {
+      margin: 8px 0;
+      padding: 6px 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button.checkBtn:hover {
+      background-color: #45a049;
+    }
+    .question-label {
+      display: inline-block;
+      width: 120px;
+      font-style: italic;
+      color: #555;
+    }
+    .wh-questions {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Past – Regular Verbs</h1>
+  <p>Complete each sentence with the correct past form. Then write the negative, interrogative, and multiple Wh- questions.</p>
+  <div id="exercises"></div>
+  <div class="stats" id="stats">Progress: 0/0 (0%)</div>
+
+  <script>
+    const exercises = [
+      {
+        sentence: "She __________ her homework after dinner.", 
+        verb: "finish", 
+        wh: ["When", "What"]
+      },
+      {
+        sentence: "We __________ the room before the guests arrived.", 
+        verb: "clean", 
+        wh: ["What", "When"]
+      },
+      {
+        sentence: "He __________ the door before leaving.", 
+        verb: "close", 
+        wh: ["Who", "When"]
+      },
+      {
+        sentence: "I __________ my bike to the park.", 
+        verb: "cycle", 
+        wh: ["Where", "What"]
+      },
+      {
+        sentence: "They __________ all the questions correctly.", 
+        verb: "answer", 
+        wh: ["How", "What"]
+      },
+      {
+        sentence: "The baby __________ all night.", 
+        verb: "cry", 
+        wh: ["How long", "Who"]
+      },
+      {
+        sentence: "You __________ your project on time.", 
+        verb: "complete", 
+        wh: ["What", "When"]
+      },
+      {
+        sentence: "The teacher __________ the test last week.", 
+        verb: "grade", 
+        wh: ["When", "Who"]
+      },
+      {
+        sentence: "My dad __________ a new computer yesterday.", 
+        verb: "order", 
+        wh: ["What", "When"]
+      },
+      {
+        sentence: "We __________ for the exam together.", 
+        verb: "study", 
+        wh: ["Who", "When"]
+      }
+    ];
+
+    const spellingRules = {
+      verbsEndingE: verb => verb + "d",
+      verbsEndingConsonantY: verb => verb.slice(0, -1) + "ied",
+      verbsEndingSingleVowelConsonant: verb => verb + verb[verb.length-1] + "ed",
+      default: verb => verb + "ed"
+    };
+
+    const container = document.getElementById("exercises");
+
+    exercises.forEach((exercise, index) => {
+      const div = document.createElement("div");
+      div.className = "exercise";
+      
+      const pastForm = getPastForm(exercise.verb);
+      const subject = exercise.sentence.split(' ')[0].toLowerCase();
+      
+      // Create Wh- question inputs
+      let whQuestionsHTML = '';
+      exercise.wh.forEach((whWord, i) => {
+        whQuestionsHTML += `
+          <div>
+            <span class="question-label">${whWord} question:</span>
+            <input type="text" id="wh-${index}-${i}" class="wh-question">
+            <div id="wh-result-${index}-${i}" class="result"></div>
+          </div>
+        `;
+      });
+      
+      div.innerHTML = `
+        <p><b>${index + 1}.</b> ${exercise.sentence.replace("__________", 
+          `<input type="text" id="affirm-${index}" class="affirmative">`)} 
+          <span class="verb-hint">(${exercise.verb})</span></p>
+        
+        <div>
+          <span class="question-label">Negative:</span>
+          <input type="text" id="neg-${index}" class="negative">
+          <div id="neg-result-${index}" class="result"></div>
+        </div>
+        
+        <div>
+          <span class="question-label">Interrogative:</span>
+          <input type="text" id="int-${index}" class="interrogative">
+          <div id="int-result-${index}" class="result"></div>
+        </div>
+        
+        <div class="wh-questions">
+          ${whQuestionsHTML}
+        </div>
+        
+        <button class="checkBtn" onclick="checkExercise(${index})">Check Answers</button>
+        <div id="affirm-result-${index}" class="result"></div>
+      `;
+      container.appendChild(div);
+    });
+
+    function getPastForm(verb) {
+      if (verb === "cry") return "cried";
+      if (verb === "study") return "studied";
+      if (verb === "zip") return "zipped";
+      if (verb.endsWith("e")) return spellingRules.verbsEndingE(verb);
+      if (verb.endsWith("y") && !"aeiou".includes(verb[verb.length-2])) {
+        return spellingRules.verbsEndingConsonantY(verb);
+      }
+      if (verb.match(/[aeiou][^aeiouywx]$/) && verb.length <= 5) {
+        return spellingRules.verbsEndingSingleVowelConsonant(verb);
+      }
+      return spellingRules.default(verb);
+    }
+
+    function checkExercise(index) {
+      const exercise = exercises[index];
+      const pastForm = getPastForm(exercise.verb);
+      const subject = exercise.sentence.split(' ')[0].toLowerCase();
+      
+      // Check affirmative
+      const affirmInput = document.getElementById(`affirm-${index}`);
+      const affirmResult = document.getElementById(`affirm-result-${index}`);
+      checkAnswer(affirmInput.value, pastForm, affirmResult);
+      
+      // Check negative
+      const negInput = document.getElementById(`neg-${index}`);
+      const negResult = document.getElementById(`neg-result-${index}`);
+      const correctNeg = `${subject} did not ${exercise.verb}`;
+      checkAnswer(negInput.value, correctNeg, negResult);
+      
+      // Check interrogative
+      const intInput = document.getElementById(`int-${index}`);
+      const intResult = document.getElementById(`int-result-${index}`);
+      const correctInt = `did ${subject} ${exercise.verb}`;
+      checkAnswer(intInput.value, correctInt, intResult);
+      
+      // Check Wh-questions
+      exercise.wh.forEach((whWord, i) => {
+        const whInput = document.getElementById(`wh-${index}-${i}`);
+        const whResult = document.getElementById(`wh-result-${index}-${i}`);
+        const correctWh = `${whWord.toLowerCase()} did ${subject} ${exercise.verb}`;
+        checkAnswer(whInput.value, correctWh, whResult);
+      });
+      
+      updateProgress();
+    }
+
+    function checkAnswer(userAnswer, correctAnswer, resultElement) {
+      const normalizedUser = userAnswer.trim().toLowerCase().replace(/[.,?!]/g, '');
+      const normalizedCorrect = correctAnswer.toLowerCase().replace(/[.,?!]/g, '');
+      
+      if (normalizedUser === normalizedCorrect) {
+        resultElement.innerHTML = `<span class="correct">✓ Correct</span>`;
+        resultElement.style.backgroundColor = "#f0fff0";
+      } else {
+        resultElement.innerHTML = `
+          <span class="wrong">✗ Wrong</span> 
+          <span class="answer">(Correct: ${correctAnswer})</span>`;
+        resultElement.style.backgroundColor = "#fff0f0";
+      }
+    }
+
+    function updateProgress() {
+      let correctCount = 0;
+      exercises.forEach((_, index) => {
+        const result = document.getElementById(`affirm-result-${index}`);
+        if (result && result.textContent.includes("✓")) correctCount++;
+      });
+      
+      const percentage = Math.round((correctCount / exercises.length) * 100);
+      document.getElementById("stats").textContent = 
+        `Progress: ${correctCount}/${exercises.length} (${percentage}%)`;
+    }
+  </script>
+</body>
+</html>

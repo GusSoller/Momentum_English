@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Past Regular Verbs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .exercise {
+      margin-bottom: 30px;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .correct {
+      color: green;
+    }
+    .wrong {
+      color: red;
+    }
+    .verb-hint {
+      color: red;
+      font-weight: bold;
+    }
+    .stats {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    input.affirmative {
+      width: 40%;
+    }
+    input.interrogative, input.negative {
+      width: 80%;
+      margin-top: 5px;
+    }
+    button.checkBtn {
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Past – Regular Verbs</h1>
+  <p>Fill in the blank with the correct past form of the verb in parentheses. Then, write the interrogative and negative forms.</p>
+  <div id="exercises"></div>
+  <div class="stats" id="stats"></div>
+
+  <script>
+    const data = [
+      {sentence: "She __________ her homework after dinner.", verb: "finish"},
+      {sentence: "We __________ the room before the guests arrived.", verb: "clean"},
+      {sentence: "He __________ the door before leaving.", verb: "close"},
+      {sentence: "I __________ my bike to the park.", verb: "cycle"},
+      {sentence: "They __________ all the questions correctly.", verb: "answer"},
+      {sentence: "The baby __________ all night.", verb: "cry"},
+      {sentence: "You __________ your project on time.", verb: "complete"},
+      {sentence: "The teacher __________ the test last week.", verb: "grade"},
+      {sentence: "My dad __________ a new computer yesterday.", verb: "order"},
+      {sentence: "We __________ for the exam together.", verb: "study"},
+      {sentence: "I __________ my grandparents last weekend.", verb: "visit"},
+      {sentence: "She __________ her room on Saturday.", verb: "decorate"},
+      {sentence: "They __________ their hands before dinner.", verb: "wash"},
+      {sentence: "He __________ to the podcast last night.", verb: "listen"},
+      {sentence: "The kids __________ in the living room.", verb: "dance"},
+      {sentence: "My mom __________ a chocolate cake.", verb: "bake"},
+      {sentence: "I __________ my jacket before going out.", verb: "zip"},
+      {sentence: "We __________ the tickets online.", verb: "book"},
+      {sentence: "You __________ very politely.", verb: "behave"},
+      {sentence: "She __________ in the art contest.", verb: "participate"},
+      {sentence: "He __________ the photos on social media.", verb: "upload"},
+      {sentence: "I __________ the phone when it rang.", verb: "answer"},
+      {sentence: "They __________ for the environment.", verb: "volunteer"},
+      {sentence: "We __________ a lot during the trip.", verb: "laugh"},
+      {sentence: "You __________ your keys on the table.", verb: "place"},
+      {sentence: "She __________ to every question.", verb: "respond"},
+      {sentence: "He __________ the car windows.", verb: "polish"},
+      {sentence: "I __________ my emails in the morning.", verb: "check"},
+      {sentence: "We __________ the rules carefully.", verb: "follow"},
+      {sentence: "They __________ the wall blue.", verb: "paint"},
+      {sentence: "You __________ the dog before dinner.", verb: "feed"},
+      {sentence: "She __________ the party last night.", verb: "enjoy"},
+      {sentence: "I __________ to my friend after class.", verb: "talk"},
+      {sentence: "We __________ the instructions.", verb: "copy"},
+      {sentence: "They __________ at the joke.", verb: "smile"},
+      {sentence: "He __________ the window open.", verb: "push"},
+      {sentence: "She __________ me with my homework.", verb: "help"},
+      {sentence: "I __________ my phone by mistake.", verb: "drop"},
+      {sentence: "You __________ your name on the list.", verb: "type"},
+      {sentence: "We __________ our bags at the hotel.", verb: "unpack"},
+      {sentence: "They __________ the floor yesterday.", verb: "mop"},
+      {sentence: "He __________ the doorbell.", verb: "ring"},
+      {sentence: "I __________ my favorite song.", verb: "download"},
+      {sentence: "You __________ very early today.", verb: "arrive"},
+      {sentence: "She __________ a lot last week.", verb: "practice"},
+      {sentence: "We __________ every word.", verb: "memorize"},
+      {sentence: "They __________ the presentation.", verb: "prepare"},
+      {sentence: "He __________ a message.", verb: "text"},
+      {sentence: "She __________ the file to the folder.", verb: "move"},
+      {sentence: "I __________ in the marathon.", verb: "compete"}
+    ];
+
+    const spellingMap = {
+      "cycle": "cycled",
+      "cry": "cried",
+      "zip": "zipped",
+      "study": "studied",
+      "stop": "stopped",
+      "plan": "planned",
+      "move": "moved",
+      "drop": "dropped",
+      "type": "typed",
+      "compete": "competed",
+      "unpack": "unpacked"
+    };
+
+    const container = document.getElementById("exercises");
+
+    data.forEach((item, index) => {
+      const div = document.createElement("div");
+      div.className = "exercise";
+      const sentenceWithInput = `${item.sentence.replace("__________", `<input type='text' id='ans${index}' class='affirmative'>`)} <span class='verb-hint'>(${item.verb})</span>`;
+      div.innerHTML = `
+        <label>${index + 1}. ${sentenceWithInput}</label><br>
+        <input type='text' id='int${index}' class='interrogative' placeholder='Interrogative form'> ?<br>
+        <input type='text' id='neg${index}' class='negative' placeholder='Negative form'><br>
+        <button class='checkBtn' type='button' onclick='checkSingle(${index})'>Check Answer</button>
+        <div class='result' id='res${index}'></div>
+      `;
+      container.appendChild(div);
+    });
+
+    function checkSingle(index) {
+      const input = document.getElementById("ans" + index);
+      const result = document.getElementById("res" + index);
+      const userAnswer = input.value.trim().toLowerCase();
+      const verb = data[index].verb;
+      const correctAnswer = spellingMap[verb] || verb + "ed";
+
+      if (userAnswer === correctAnswer) {
+        result.textContent = "CORRECT";
+        result.className = "result correct";
+      } else {
+        result.textContent = `WRONG (${correctAnswer})`;
+        result.className = "result wrong";
+      }
+      updateStats();
+    }
+
+    function updateStats() {
+      let correct = 0;
+      data.forEach((item, index) => {
+        const res = document.getElementById("res" + index);
+        if (res.textContent.startsWith("CORRECT")) correct++;
+      });
+      const percent = ((correct / data.length) * 100).toFixed(1);
+      document.getElementById("stats").textContent = `You got ${correct} out of ${data.length} right (${percent}%)`;
+    }
+  </script>
+</body>
+</html>

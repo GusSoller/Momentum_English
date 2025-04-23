@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Was/Were Exercise</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    input.answer {
+      padding: 5px;
+      font-size: 16px;
+      width: 80px;
+      text-align: center;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+    .feedback {
+      margin-left: 15px;
+    }
+    #scoreBox {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Was / Were Exercise</h2>
+  <p>Type <strong>was</strong> or <strong>were</strong> in each blank. Then click "Check Answers" to see your results.</p>
+
+  <div id="quiz"></div>
+
+  <button onclick="checkAnswers()">Check Answers</button>
+  <div id="scoreBox"></div>
+
+  <script>
+    const questions = [
+      { start: "How many people", answer: "were", end: " at your house last weekend?" },
+      { start: "The book wasn’t difficult. It", answer: "was", end: " easy." },
+      { start: "Those", answer: "were", end: " my best jeans." },
+      { start: "Dinosaurs", answer: "were", end: " prehistoric animals." },
+      { start: "", answer: "Were", end: " your friends at school yesterday?" },
+      { start: "Sandra", answer: "was", end: " not at school yesterday." },
+      { start: "You", answer: "were", end: " nasty to me!" },
+      { start: "", answer: "Were", end: " your grandparents designers?" },
+      { start: "John and I", answer: "were", end: " in the garden." },
+      { start: "", answer: "Were", end: " your parents in the restaurant? Yes, they were." },
+      { start: "My grandmother", answer: "was", end: " a nurse. She wasn’t a doctor." },
+      { start: "I", answer: "was", end: " thin when I was 6 years old." },
+      { start: "When I", answer: "was", end: " younger, I played with teddy bears." },
+      { start: "We", answer: "were", end: " away on vacation last month." },
+      { start: "", answer: "Were", end: " you at the cinema last night?" }
+    ];
+
+    const quizDiv = document.getElementById("quiz");
+
+    questions.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<span>${index + 1}. ${q.start} </span>
+        <input type="text" class="answer" id="input${index}" placeholder="was/were">
+        <span>${q.end}</span>
+        <span class="feedback" id="feedback${index}"></span>`;
+      quizDiv.appendChild(div);
+    });
+
+    function checkAnswers() {
+      let correctCount = 0;
+      let wrongCount = 0;
+
+      questions.forEach((q, index) => {
+        const userInput = document.getElementById(`input${index}`).value.trim().toLowerCase();
+        const correct = q.answer.toLowerCase();
+        const feedback = document.getElementById(`feedback${index}`);
+
+        if (userInput === correct) {
+          feedback.textContent = " Correct!";
+          feedback.className = "feedback correct";
+          correctCount++;
+        } else {
+          feedback.textContent = " Wrong.";
+          feedback.className = "feedback wrong";
+          wrongCount++;
+        }
+      });
+
+      const total = correctCount + wrongCount;
+      const correctPercent = Math.round((correctCount / total) * 100);
+      const wrongPercent = 100 - correctPercent;
+
+      document.getElementById("scoreBox").textContent = `Correct: ${correctCount} (${correctPercent}%) | Wrong: ${wrongCount} (${wrongPercent}%)`;
+    }
+  </script>
+</body>
+</html>

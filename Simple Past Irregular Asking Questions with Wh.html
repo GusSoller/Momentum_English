@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Past Tense Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .exercise {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .affirmative {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .question-container {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .question-label {
+            display: inline-block;
+            width: 60px;
+        }
+        input {
+            flex: 1;
+            min-width: 200px;
+            padding: 8px;
+            margin: 2px 5px 2px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .feedback {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+        .correct-answer {
+            color: #1E90FF;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .exercise {
+                padding: 10px;
+            }
+            .question-label {
+                width: 50px;
+            }
+            input {
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Past Tense Exercise</h1>
+    <p>Convert each affirmative sentence to interrogative (Int) and negative (Neg) forms, then answer the Wh- questions.</p>
+
+    <div id="exercises-container">
+        <!-- Exercise 1 -->
+        <div class="exercise">
+            <div class="affirmative">1. We saw a house on the beach last night</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int1">
+                <button onclick="checkAnswer('int1', 'Did we see a house on the beach last night')">Check</button>
+                <span id="feedback-int1" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg1">
+                <button onclick="checkAnswer('neg1', 'We did not see a house on the beach last night')">Check</button>
+                <span id="feedback-neg1" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who1">
+                <button onclick="checkAnswer('who1', 'we')">Check</button>
+                <span id="feedback-who1" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what1">
+                <button onclick="checkAnswer('what1', 'a house')">Check</button>
+                <span id="feedback-what1" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where1">
+                <button onclick="checkAnswer('where1', 'on the beach')">Check</button>
+                <span id="feedback-where1" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when1">
+                <button onclick="checkAnswer('when1', 'last night')">Check</button>
+                <span id="feedback-when1" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 2 -->
+        <div class="exercise">
+            <div class="affirmative">2. The dog found a toy in the office Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int2">
+                <button onclick="checkAnswer('int2', 'Did the dog find a toy in the office yesterday')">Check</button>
+                <span id="feedback-int2" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg2">
+                <button onclick="checkAnswer('neg2', 'The dog did not find a toy in the office yesterday')">Check</button>
+                <span id="feedback-neg2" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who2">
+                <button onclick="checkAnswer('who2', 'the dog')">Check</button>
+                <span id="feedback-who2" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what2">
+                <button onclick="checkAnswer('what2', 'a toy')">Check</button>
+                <span id="feedback-what2" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where2">
+                <button onclick="checkAnswer('where2', 'in the office')">Check</button>
+                <span id="feedback-where2" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when2">
+                <button onclick="checkAnswer('when2', 'yesterday')">Check</button>
+                <span id="feedback-when2" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 3 -->
+        <div class="exercise">
+            <div class="affirmative">3. She ate cake at the museum in 2020</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int3">
+                <button onclick="checkAnswer('int3', 'Did she eat cake at the museum in 2020')">Check</button>
+                <span id="feedback-int3" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg3">
+                <button onclick="checkAnswer('neg3', 'She did not eat cake at the museum in 2020')">Check</button>
+                <span id="feedback-neg3" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who3">
+                <button onclick="checkAnswer('who3', 'she')">Check</button>
+                <span id="feedback-who3" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what3">
+                <button onclick="checkAnswer('what3', 'cake')">Check</button>
+                <span id="feedback-what3" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where3">
+                <button onclick="checkAnswer('where3', 'at the museum')">Check</button>
+                <span id="feedback-where3" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when3">
+                <button onclick="checkAnswer('when3', 'in 2020')">Check</button>
+                <span id="feedback-when3" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 4 -->
+        <div class="exercise">
+            <div class="affirmative">4. They drove cars at the park last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int4">
+                <button onclick="checkAnswer('int4', 'Did they drive cars at the park last week')">Check</button>
+                <span id="feedback-int4" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg4">
+                <button onclick="checkAnswer('neg4', 'They did not drive cars at the park last week')">Check</button>
+                <span id="feedback-neg4" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who4">
+                <button onclick="checkAnswer('who4', 'they')">Check</button>
+                <span id="feedback-who4" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what4">
+                <button onclick="checkAnswer('what4', 'cars')">Check</button>
+                <span id="feedback-what4" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where4">
+                <button onclick="checkAnswer('where4', 'at the park')">Check</button>
+                <span id="feedback-where4" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when4">
+                <button onclick="checkAnswer('when4', 'last week')">Check</button>
+                <span id="feedback-when4" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 5 -->
+        <div class="exercise">
+            <div class="affirmative">5. The teacher gave books in the library on Monday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int5">
+                <button onclick="checkAnswer('int5', 'Did the teacher give books in the library on Monday')">Check</button>
+                <span id="feedback-int5" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg5">
+                <button onclick="checkAnswer('neg5', 'The teacher did not give books in the library on Monday')">Check</button>
+                <span id="feedback-neg5" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who5">
+                <button onclick="checkAnswer('who5', 'the teacher')">Check</button>
+                <span id="feedback-who5" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what5">
+                <button onclick="checkAnswer('what5', 'books')">Check</button>
+                <span id="feedback-what5" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where5">
+                <button onclick="checkAnswer('where5', 'in the library')">Check</button>
+                <span id="feedback-where5" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when5">
+                <button onclick="checkAnswer('when5', 'on Monday')">Check</button>
+                <span id="feedback-when5" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 6 -->
+        <div class="exercise">
+            <div class="affirmative">6. I took pictures at school Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int6">
+                <button onclick="checkAnswer('int6', 'Did I take pictures at school yesterday')">Check</button>
+                <span id="feedback-int6" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg6">
+                <button onclick="checkAnswer('neg6', 'I did not take pictures at school yesterday')">Check</button>
+                <span id="feedback-neg6" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who6">
+                <button onclick="checkAnswer('who6', 'I')">Check</button>
+                <span id="feedback-who6" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what6">
+                <button onclick="checkAnswer('what6', 'pictures')">Check</button>
+                <span id="feedback-what6" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where6">
+                <button onclick="checkAnswer('where6', 'at school')">Check</button>
+                <span id="feedback-where6" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when6">
+                <button onclick="checkAnswer('when6', 'yesterday')">Check</button>
+                <span id="feedback-when6" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 7 -->
+        <div class="exercise">
+            <div class="affirmative">7. He bought flowers at the store an hour ago</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int7">
+                <button onclick="checkAnswer('int7', 'Did he buy flowers at the store an hour ago')">Check</button>
+                <span id="feedback-int7" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg7">
+                <button onclick="checkAnswer('neg7', 'He did not buy flowers at the store an hour ago')">Check</button>
+                <span id="feedback-neg7" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who7">
+                <button onclick="checkAnswer('who7', 'he')">Check</button>
+                <span id="feedback-who7" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what7">
+                <button onclick="checkAnswer('what7', 'flowers')">Check</button>
+                <span id="feedback-what7" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where7">
+                <button onclick="checkAnswer('where7', 'at the store')">Check</button>
+                <span id="feedback-where7" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when7">
+                <button onclick="checkAnswer('when7', 'an hour ago')">Check</button>
+                <span id="feedback-when7" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 8 -->
+        <div class="exercise">
+            <div class="affirmative">8. The artist made sculptures in her studio last year</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int8">
+                <button onclick="checkAnswer('int8', 'Did the artist make sculptures in her studio last year')">Check</button>
+                <span id="feedback-int8" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg8">
+                <button onclick="checkAnswer('neg8', 'The artist did not make sculptures in her studio last year')">Check</button>
+                <span id="feedback-neg8" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who8">
+                <button onclick="checkAnswer('who8', 'the artist')">Check</button>
+                <span id="feedback-who8" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what8">
+                <button onclick="checkAnswer('what8', 'sculptures')">Check</button>
+                <span id="feedback-what8" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where8">
+                <button onclick="checkAnswer('where8', 'in her studio')">Check</button>
+                <span id="feedback-where8" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when8">
+                <button onclick="checkAnswer('when8', 'last year')">Check</button>
+                <span id="feedback-when8" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 9 -->
+        <div class="exercise">
+            <div class="affirmative">9. They wrote letters at home last night</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int9">
+                <button onclick="checkAnswer('int9', 'Did they write letters at home last night')">Check</button>
+                <span id="feedback-int9" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg9">
+                <button onclick="checkAnswer('neg9', 'They did not write letters at home last night')">Check</button>
+                <span id="feedback-neg9" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who9">
+                <button onclick="checkAnswer('who9', 'they')">Check</button>
+                <span id="feedback-who9" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what9">
+                <button onclick="checkAnswer('what9', 'letters')">Check</button>
+                <span id="feedback-what9" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where9">
+                <button onclick="checkAnswer('where9', 'at home')">Check</button>
+                <span id="feedback-where9" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when9">
+                <button onclick="checkAnswer('when9', 'last night')">Check</button>
+                <span id="feedback-when9" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 10 -->
+        <div class="exercise">
+            <div class="affirmative">10. She sang a song at the concert in 2019</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int10">
+                <button onclick="checkAnswer('int10', 'Did she sing a song at the concert in 2019')">Check</button>
+                <span id="feedback-int10" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg10">
+                <button onclick="checkAnswer('neg10', 'She did not sing a song at the concert in 2019')">Check</button>
+                <span id="feedback-neg10" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who10">
+                <button onclick="checkAnswer('who10', 'she')">Check</button>
+                <span id="feedback-who10" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what10">
+                <button onclick="checkAnswer('what10', 'a song')">Check</button>
+                <span id="feedback-what10" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where10">
+                <button onclick="checkAnswer('where10', 'at the concert')">Check</button>
+                <span id="feedback-where10" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when10">
+                <button onclick="checkAnswer('when10', 'in 2019')">Check</button>
+                <span id="feedback-when10" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 11 -->
+        <div class="exercise">
+            <div class="affirmative">11. He took a picture of the sunset on the beach</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int11">
+                <button onclick="checkAnswer('int11', 'Did he take a picture of the sunset on the beach')">Check</button>
+                <span id="feedback-int11" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg11">
+                <button onclick="checkAnswer('neg11', 'He did not take a picture of the sunset on the beach')">Check</button>
+                <span id="feedback-neg11" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who11">
+                <button onclick="checkAnswer('who11', 'he')">Check</button>
+                <span id="feedback-who11" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what11">
+                <button onclick="checkAnswer('what11', 'a picture of the sunset')">Check</button>
+                <span id="feedback-what11" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where11">
+                <button onclick="checkAnswer('where11', 'on the beach')">Check</button>
+                <span id="feedback-where11" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when11">
+                <button onclick="checkAnswer('when11', '')">Check</button>
+                <span id="feedback-when11" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 12 -->
+        <div class="exercise">
+            <div class="affirmative">12. The students learned a new language at school last year</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int12">
+                <button onclick="checkAnswer('int12', 'Did the students learn a new language at school last year')">Check</button>
+                <span id="feedback-int12" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg12">
+                <button onclick="checkAnswer('neg12', 'The students did not learn a new language at school last year')">Check</button>
+                <span id="feedback-neg12" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who12">
+                <button onclick="checkAnswer('who12', 'the students')">Check</button>
+                <span id="feedback-who12" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what12">
+                <button onclick="checkAnswer('what12', 'a new language')">Check</button>
+                <span id="feedback-what12" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where12">
+                <button onclick="checkAnswer('where12', 'at school')">Check</button>
+                <span id="feedback-where12" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when12">
+                <button onclick="checkAnswer('when12', 'last year')">Check</button>
+                <span id="feedback-when12" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 13 -->
+        <div class="exercise">
+            <div class="affirmative">13. They built a house in the countryside</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int13">
+                <button onclick="checkAnswer('int13', 'Did they build a house in the countryside')">Check</button>
+                <span id="feedback-int13" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg13">
+                <button onclick="checkAnswer('neg13', 'They did not build a house in the countryside')">Check</button>
+                <span id="feedback-neg13" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who13">
+                <button onclick="checkAnswer('who13', 'they')">Check</button>
+                <span id="feedback-who13" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what13">
+                <button onclick="checkAnswer('what13', 'a house')">Check</button>
+                <span id="feedback-what13" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where13">
+                <button onclick="checkAnswer('where13', 'in the countryside')">Check</button>
+                <span id="feedback-where13" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when13">
+                <button onclick="checkAnswer('when13', '')">Check</button>
+                <span id="feedback-when13" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 14 -->
+        <div class="exercise">
+            <div class="affirmative">14. She made breakfast in the kitchen this morning</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int14">
+                <button onclick="checkAnswer('int14', 'Did she make breakfast in the kitchen this morning')">Check</button>
+                <span id="feedback-int14" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg14">
+                <button onclick="checkAnswer('neg14', 'She did not make breakfast in the kitchen this morning')">Check</button>
+                <span id="feedback-neg14" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who14">
+                <button onclick="checkAnswer('who14', 'she')">Check</button>
+                <span id="feedback-who14" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what14">
+                <button onclick="checkAnswer('what14', 'breakfast')">Check</button>
+                <span id="feedback-what14" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where14">
+                <button onclick="checkAnswer('where14', 'in the kitchen')">Check</button>
+                <span id="feedback-where14" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when14">
+                <button onclick="checkAnswer('when14', 'this morning')">Check</button>
+                <span id="feedback-when14" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 15 -->
+        <div class="exercise">
+            <div class="affirmative">15. He read a book at the library Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int15">
+                <button onclick="checkAnswer('int15', 'Did he read a book at the library yesterday')">Check</button>
+                <span id="feedback-int15" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg15">
+                <button onclick="checkAnswer('neg15', 'He did not read a book at the library yesterday')">Check</button>
+                <span id="feedback-neg15" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who15">
+                <button onclick="checkAnswer('who15', 'he')">Check</button>
+                <span id="feedback-who15" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what15">
+                <button onclick="checkAnswer('what15', 'a book')">Check</button>
+                <span id="feedback-what15" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where15">
+                <button onclick="checkAnswer('where15', 'at the library')">Check</button>
+                <span id="feedback-where15" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when15">
+                <button onclick="checkAnswer('when15', 'yesterday')">Check</button>
+                <span id="feedback-when15" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 16 -->
+        <div class="exercise">
+            <div class="affirmative">16. The family went on a vacation to Hawaii last summer</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int16">
+                <button onclick="checkAnswer('int16', 'Did the family go on a vacation to Hawaii last summer')">Check</button>
+                <span id="feedback-int16" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg16">
+                <button onclick="checkAnswer('neg16', 'The family did not go on a vacation to Hawaii last summer')">Check</button>
+                <span id="feedback-neg16" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who16">
+                <button onclick="checkAnswer('who16', 'the family')">Check</button>
+                <span id="feedback-who16" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what16">
+                <button onclick="checkAnswer('what16', 'a vacation')">Check</button>
+                <span id="feedback-what16" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where16">
+                <button onclick="checkAnswer('where16', 'to Hawaii')">Check</button>
+                <span id="feedback-where16" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when16">
+                <button onclick="checkAnswer('when16', 'last summer')">Check</button>
+                <span id="feedback-when16" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 17 -->
+        <div class="exercise">
+            <div class="affirmative">17. They played soccer at the stadium last night</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int17">
+                <button onclick="checkAnswer('int17', 'Did they play soccer at the stadium last night')">Check</button>
+                <span id="feedback-int17" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg17">
+                <button onclick="checkAnswer('neg17', 'They did not play soccer at the stadium last night')">Check</button>
+                <span id="feedback-neg17" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who17">
+                <button onclick="checkAnswer('who17', 'they')">Check</button>
+                <span id="feedback-who17" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what17">
+                <button onclick="checkAnswer('what17', 'soccer')">Check</button>
+                <span id="feedback-what17" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where17">
+                <button onclick="checkAnswer('where17', 'at the stadium')">Check</button>
+                <span id="feedback-where17" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when17">
+                <button onclick="checkAnswer('when17', 'last night')">Check</button>
+                <span id="feedback-when17" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 18 -->
+        <div class="exercise">
+            <div class="affirmative">18. She bought a new phone at the store Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int18">
+                <button onclick="checkAnswer('int18', 'Did she buy a new phone at the store yesterday')">Check</button>
+                <span id="feedback-int18" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg18">
+                <button onclick="checkAnswer('neg18', 'She did not buy a new phone at the store yesterday')">Check</button>
+                <span id="feedback-neg18" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who18">
+                <button onclick="checkAnswer('who18', 'she')">Check</button>
+                <span id="feedback-who18" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what18">
+                <button onclick="checkAnswer('what18', 'a new phone')">Check</button>
+                <span id="feedback-what18" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where18">
+                <button onclick="checkAnswer('where18', 'at the store')">Check</button>
+                <span id="feedback-where18" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when18">
+                <button onclick="checkAnswer('when18', 'yesterday')">Check</button>
+                <span id="feedback-when18" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 19 -->
+        <div class="exercise">
+            <div class="affirmative">19. The team won the championship at the tournament last year</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int19">
+                <button onclick="checkAnswer('int19', 'Did the team win the championship at the tournament last year')">Check</button>
+                <span id="feedback-int19" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg19">
+                <button onclick="checkAnswer('neg19', 'The team did not win the championship at the tournament last year')">Check</button>
+                <span id="feedback-neg19" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who19">
+                <button onclick="checkAnswer('who19', 'the team')">Check</button>
+                <span id="feedback-who19" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what19">
+                <button onclick="checkAnswer('what19', 'the championship')">Check</button>
+                <span id="feedback-what19" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where19">
+                <button onclick="checkAnswer('where19', 'at the tournament')">Check</button>
+                <span id="feedback-where19" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when19">
+                <button onclick="checkAnswer('when19', 'last year')">Check</button>
+                <span id="feedback-when19" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 20 -->
+        <div class="exercise">
+            <div class="affirmative">20. He made a presentation at the conference in 2022</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int20">
+                <button onclick="checkAnswer('int20', 'Did he make a presentation at the conference in 2022')">Check</button>
+                <span id="feedback-int20" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg20">
+                <button onclick="checkAnswer('neg20', 'He did not make a presentation at the conference in 2022')">Check</button>
+                <span id="feedback-neg20" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who20">
+                <button onclick="checkAnswer('who20', 'he')">Check</button>
+                <span id="feedback-who20" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what20">
+                <button onclick="checkAnswer('what20', 'a presentation')">Check</button>
+                <span id="feedback-what20" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where20">
+                <button onclick="checkAnswer('where20', 'at the conference')">Check</button>
+                <span id="feedback-where20" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when20">
+                <button onclick="checkAnswer('when20', 'in 2022')">Check</button>
+                <span id="feedback-when20" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 21 -->
+        <div class="exercise">
+            <div class="affirmative">21. The students attended a lecture at the university Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int21">
+                <button onclick="checkAnswer('int21', 'Did the students attend a lecture at the university yesterday')">Check</button>
+                <span id="feedback-int21" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg21">
+                <button onclick="checkAnswer('neg21', 'The students did not attend a lecture at the university yesterday')">Check</button>
+                <span id="feedback-neg21" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who21">
+                <button onclick="checkAnswer('who21', 'the students')">Check</button>
+                <span id="feedback-who21" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what21">
+                <button onclick="checkAnswer('what21', 'a lecture')">Check</button>
+                <span id="feedback-what21" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where21">
+                <button onclick="checkAnswer('where21', 'at the university')">Check</button>
+                <span id="feedback-where21" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when21">
+                <button onclick="checkAnswer('when21', 'yesterday')">Check</button>
+                <span id="feedback-when21" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 22 -->
+        <div class="exercise">
+            <div class="affirmative">22. She wrote a poem in her journal last night</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int22">
+                <button onclick="checkAnswer('int22', 'Did she write a poem in her journal last night')">Check</button>
+                <span id="feedback-int22" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg22">
+                <button onclick="checkAnswer('neg22', 'She did not write a poem in her journal last night')">Check</button>
+                <span id="feedback-neg22" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who22">
+                <button onclick="checkAnswer('who22', 'she')">Check</button>
+                <span id="feedback-who22" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what22">
+                <button onclick="checkAnswer('what22', 'a poem')">Check</button>
+                <span id="feedback-what22" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where22">
+                <button onclick="checkAnswer('where22', 'in her journal')">Check</button>
+                <span id="feedback-where22" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when22">
+                <button onclick="checkAnswer('when22', 'last night')">Check</button>
+                <span id="feedback-when22" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 23 -->
+        <div class="exercise">
+            <div class="affirmative">23. They played music at the concert hall last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int23">
+                <button onclick="checkAnswer('int23', 'Did they play music at the concert hall last week')">Check</button>
+                <span id="feedback-int23" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg23">
+                <button onclick="checkAnswer('neg23', 'They did not play music at the concert hall last week')">Check</button>
+                <span id="feedback-neg23" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who23">
+                <button onclick="checkAnswer('who23', 'they')">Check</button>
+                <span id="feedback-who23" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what23">
+                <button onclick="checkAnswer('what23', 'music')">Check</button>
+                <span id="feedback-what23" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where23">
+                <button onclick="checkAnswer('where23', 'at the concert hall')">Check</button>
+                <span id="feedback-where23" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when23">
+                <button onclick="checkAnswer('when23', 'last week')">Check</button>
+                <span id="feedback-when23" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 24 -->
+        <div class="exercise">
+            <div class="affirmative">24. He gave a speech at the meeting Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int24">
+                <button onclick="checkAnswer('int24', 'Did he give a speech at the meeting yesterday')">Check</button>
+                <span id="feedback-int24" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg24">
+                <button onclick="checkAnswer('neg24', 'He did not give a speech at the meeting yesterday')">Check</button>
+                <span id="feedback-neg24" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who24">
+                <button onclick="checkAnswer('who24', 'he')">Check</button>
+                <span id="feedback-who24" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what24">
+                <button onclick="checkAnswer('what24', 'a speech')">Check</button>
+                <span id="feedback-what24" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where24">
+                <button onclick="checkAnswer('where24', 'at the meeting')">Check</button>
+                <span id="feedback-where24" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when24">
+                <button onclick="checkAnswer('when24', 'yesterday')">Check</button>
+                <span id="feedback-when24" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 25 -->
+        <div class="exercise">
+            <div class="affirmative">25. The company launched a new product at the expo last month</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int25">
+                <button onclick="checkAnswer('int25', 'Did the company launch a new product at the expo last month')">Check</button>
+                <span id="feedback-int25" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg25">
+                <button onclick="checkAnswer('neg25', 'The company did not launch a new product at the expo last month')">Check</button>
+                <span id="feedback-neg25" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who25">
+                <button onclick="checkAnswer('who25', 'the company')">Check</button>
+                <span id="feedback-who25" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what25">
+                <button onclick="checkAnswer('what25', 'a new product')">Check</button>
+                <span id="feedback-what25" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where25">
+                <button onclick="checkAnswer('where25', 'at the expo')">Check</button>
+                <span id="feedback-where25" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when25">
+                <button onclick="checkAnswer('when25', 'last month')">Check</button>
+                <span id="feedback-when25" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 26 -->
+        <div class="exercise">
+            <div class="affirmative">26. She made a video for her YouTube channel last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int26">
+                <button onclick="checkAnswer('int26', 'Did she make a video for her YouTube channel last week')">Check</button>
+                <span id="feedback-int26" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg26">
+                <button onclick="checkAnswer('neg26', 'She did not make a video for her YouTube channel last week')">Check</button>
+                <span id="feedback-neg26" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who26">
+                <button onclick="checkAnswer('who26', 'she')">Check</button>
+                <span id="feedback-who26" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what26">
+                <button onclick="checkAnswer('what26', 'a video')">Check</button>
+                <span id="feedback-what26" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where26">
+                <button onclick="checkAnswer('where26', 'for her YouTube channel')">Check</button>
+                <span id="feedback-where26" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when26">
+                <button onclick="checkAnswer('when26', 'last week')">Check</button>
+                <span id="feedback-when26" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 27 -->
+        <div class="exercise">
+            <div class="affirmative">27. They built a treehouse in the backyard last summer</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int27">
+                <button onclick="checkAnswer('int27', 'Did they build a treehouse in the backyard last summer')">Check</button>
+                <span id="feedback-int27" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg27">
+                <button onclick="checkAnswer('neg27', 'They did not build a treehouse in the backyard last summer')">Check</button>
+                <span id="feedback-neg27" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who27">
+                <button onclick="checkAnswer('who27', 'they')">Check</button>
+                <span id="feedback-who27" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what27">
+                <button onclick="checkAnswer('what27', 'a treehouse')">Check</button>
+                <span id="feedback-what27" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where27">
+                <button onclick="checkAnswer('where27', 'in the backyard')">Check</button>
+                <span id="feedback-where27" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when27">
+                <button onclick="checkAnswer('when27', 'last summer')">Check</button>
+                <span id="feedback-when27" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 28 -->
+        <div class="exercise">
+            <div class="affirmative">28. He wrote a letter to his friend last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int28">
+                <button onclick="checkAnswer('int28', 'Did he write a letter to his friend last week')">Check</button>
+                <span id="feedback-int28" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg28">
+                <button onclick="checkAnswer('neg28', 'He did not write a letter to his friend last week')">Check</button>
+                <span id="feedback-neg28" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who28">
+                <button onclick="checkAnswer('who28', 'he')">Check</button>
+                <span id="feedback-who28" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what28">
+                <button onclick="checkAnswer('what28', 'a letter')">Check</button>
+                <span id="feedback-what28" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where28">
+                <button onclick="checkAnswer('where28', 'to his friend')">Check</button>
+                <span id="feedback-where28" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when28">
+                <button onclick="checkAnswer('when28', 'last week')">Check</button>
+                <span id="feedback-when28" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 29 -->
+        <div class="exercise">
+            <div class="affirmative">29. He wrote a letter to his friend last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int29">
+                <button onclick="checkAnswer('int29', 'Did he write a letter to his friend last week')">Check</button>
+                <span id="feedback-int29" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg29">
+                <button onclick="checkAnswer('neg29', 'He did not write a letter to his friend last week')">Check</button>
+                <span id="feedback-neg29" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who29">
+                <button onclick="checkAnswer('who29', 'he')">Check</button>
+                <span id="feedback-who29" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what29">
+                <button onclick="checkAnswer('what29', 'a letter')">Check</button>
+                <span id="feedback-what29" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where29">
+                <button onclick="checkAnswer('where29', 'to his friend')">Check</button>
+                <span id="feedback-where29" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when29">
+                <button onclick="checkAnswer('when29', 'last week')">Check</button>
+                <span id="feedback-when29" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 30 -->
+        <div class="exercise">
+            <div class="affirmative">30. The team practiced soccer at the field Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int30">
+                <button onclick="checkAnswer('int30', 'Did the team practice soccer at the field yesterday')">Check</button>
+                <span id="feedback-int30" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg30">
+                <button onclick="checkAnswer('neg30', 'The team did not practice soccer at the field yesterday')">Check</button>
+                <span id="feedback-neg30" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who30">
+                <button onclick="checkAnswer('who30', 'the team')">Check</button>
+                <span id="feedback-who30" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what30">
+                <button onclick="checkAnswer('what30', 'soccer')">Check</button>
+                <span id="feedback-what30" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where30">
+                <button onclick="checkAnswer('where30', 'at the field')">Check</button>
+                <span id="feedback-where30" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when30">
+                <button onclick="checkAnswer('when30', 'yesterday')">Check</button>
+                <span id="feedback-when30" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 31 -->
+        <div class="exercise">
+            <div class="affirmative">31. She took a photo of the sunset on the beach</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int31">
+                <button onclick="checkAnswer('int31', 'Did she take a photo of the sunset on the beach')">Check</button>
+                <span id="feedback-int31" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg31">
+                <button onclick="checkAnswer('neg31', 'She did not take a photo of the sunset on the beach')">Check</button>
+                <span id="feedback-neg31" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who31">
+                <button onclick="checkAnswer('who31', 'she')">Check</button>
+                <span id="feedback-who31" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what31">
+                <button onclick="checkAnswer('what31', 'a photo of the sunset')">Check</button>
+                <span id="feedback-what31" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where31">
+                <button onclick="checkAnswer('where31', 'on the beach')">Check</button>
+                <span id="feedback-where31" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when31">
+                <button onclick="checkAnswer('when31', '')">Check</button>
+                <span id="feedback-when31" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 32 -->
+        <div class="exercise">
+            <div class="affirmative">32. They made a cake for the birthday party last night</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int32">
+                <button onclick="checkAnswer('int32', 'Did they make a cake for the birthday party last night')">Check</button>
+                <span id="feedback-int32" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg32">
+                <button onclick="checkAnswer('neg32', 'They did not make a cake for the birthday party last night')">Check</button>
+                <span id="feedback-neg32" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who32">
+                <button onclick="checkAnswer('who32', 'they')">Check</button>
+                <span id="feedback-who32" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what32">
+                <button onclick="checkAnswer('what32', 'a cake')">Check</button>
+                <span id="feedback-what32" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where32">
+                <button onclick="checkAnswer('where32', 'for the birthday party')">Check</button>
+                <span id="feedback-where32" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when32">
+                <button onclick="checkAnswer('when32', 'last night')">Check</button>
+                <span id="feedback-when32" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 33 -->
+        <div class="exercise">
+            <div class="affirmative">33. He read a book at the library last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int33">
+                <button onclick="checkAnswer('int33', 'Did he read a book at the library last week')">Check</button>
+                <span id="feedback-int33" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg33">
+                <button onclick="checkAnswer('neg33', 'He did not read a book at the library last week')">Check</button>
+                <span id="feedback-neg33" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who33">
+                <button onclick="checkAnswer('who33', 'he')">Check</button>
+                <span id="feedback-who33" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what33">
+                <button onclick="checkAnswer('what33', 'a book')">Check</button>
+                <span id="feedback-what33" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where33">
+                <button onclick="checkAnswer('where33', 'at the library')">Check</button>
+                <span id="feedback-where33" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when33">
+                <button onclick="checkAnswer('when33', 'last week')">Check</button>
+                <span id="feedback-when33" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 34 -->
+        <div class="exercise">
+            <div class="affirmative">34. The students attended a workshop at the university Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int34">
+                <button onclick="checkAnswer('int34', 'Did the students attend a workshop at the university yesterday')">Check</button>
+                <span id="feedback-int34" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg34">
+                <button onclick="checkAnswer('neg34', 'The students did not attend a workshop at the university yesterday')">Check</button>
+                <span id="feedback-neg34" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who34">
+                <button onclick="checkAnswer('who34', 'the students')">Check</button>
+                <span id="feedback-who34" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what34">
+                <button onclick="checkAnswer('what34', 'a workshop')">Check</button>
+                <span id="feedback-what34" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where34">
+                <button onclick="checkAnswer('where34', 'at the university')">Check</button>
+                <span id="feedback-where34" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when34">
+                <button onclick="checkAnswer('when34', 'yesterday')">Check</button>
+                <span id="feedback-when34" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 35 -->
+        <div class="exercise">
+            <div class="affirmative">35. She sang a song at the karaoke bar last night</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int35">
+                <button onclick="checkAnswer('int35', 'Did she sing a song at the karaoke bar last night')">Check</button>
+                <span id="feedback-int35" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg35">
+                <button onclick="checkAnswer('neg35', 'She did not sing a song at the karaoke bar last night')">Check</button>
+                <span id="feedback-neg35" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who35">
+                <button onclick="checkAnswer('who35', 'she')">Check</button>
+                <span id="feedback-who35" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what35">
+                <button onclick="checkAnswer('what35', 'a song')">Check</button>
+                <span id="feedback-what35" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where35">
+                <button onclick="checkAnswer('where35', 'at the karaoke bar')">Check</button>
+                <span id="feedback-where35" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when35">
+                <button onclick="checkAnswer('when35', 'last night')">Check</button>
+                <span id="feedback-when35" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 36 -->
+        <div class="exercise">
+            <div class="affirmative">36. They played basketball at the gym Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int36">
+                <button onclick="checkAnswer('int36', 'Did they play basketball at the gym yesterday')">Check</button>
+                <span id="feedback-int36" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg36">
+                <button onclick="checkAnswer('neg36', 'They did not play basketball at the gym yesterday')">Check</button>
+                <span id="feedback-neg36" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who36">
+                <button onclick="checkAnswer('who36', 'they')">Check</button>
+                <span id="feedback-who36" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what36">
+                <button onclick="checkAnswer('what36', 'basketball')">Check</button>
+                <span id="feedback-what36" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where36">
+                <button onclick="checkAnswer('where36', 'at the gym')">Check</button>
+                <span id="feedback-where36" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when36">
+                <button onclick="checkAnswer('when36', 'yesterday')">Check</button>
+                <span id="feedback-when36" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 37 -->
+        <div class="exercise">
+            <div class="affirmative">37. He bought a new bike at the store last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int37">
+                <button onclick="checkAnswer('int37', 'Did he buy a new bike at the store last week')">Check</button>
+                <span id="feedback-int37" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg37">
+                <button onclick="checkAnswer('neg37', 'He did not buy a new bike at the store last week')">Check</button>
+                <span id="feedback-neg37" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who37">
+                <button onclick="checkAnswer('who37', 'he')">Check</button>
+                <span id="feedback-who37" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what37">
+                <button onclick="checkAnswer('what37', 'a new bike')">Check</button>
+                <span id="feedback-what37" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where37">
+                <button onclick="checkAnswer('where37', 'at the store')">Check</button>
+                <span id="feedback-where37" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when37">
+                <button onclick="checkAnswer('when37', 'last week')">Check</button>
+                <span id="feedback-when37" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 38 -->
+        <div class="exercise">
+            <div class="affirmative">38. The family went on a hike in the mountains last weekend</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int38">
+                <button onclick="checkAnswer('int38', 'Did the family go on a hike in the mountains last weekend')">Check</button>
+                <span id="feedback-int38" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg38">
+                <button onclick="checkAnswer('neg38', 'The family did not go on a hike in the mountains last weekend')">Check</button>
+                <span id="feedback-neg38" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who38">
+                <button onclick="checkAnswer('who38', 'the family')">Check</button>
+                <span id="feedback-who38" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what38">
+                <button onclick="checkAnswer('what38', 'a hike')">Check</button>
+                <span id="feedback-what38" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where38">
+                <button onclick="checkAnswer('where38', 'in the mountains')">Check</button>
+                <span id="feedback-where38" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when38">
+                <button onclick="checkAnswer('when38', 'last weekend')">Check</button>
+                <span id="feedback-when38" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 39 -->
+        <div class="exercise">
+            <div class="affirmative">39. She made a video for her social media last night</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int39">
+                <button onclick="checkAnswer('int39', 'Did she make a video for her social media last night')">Check</button>
+                <span id="feedback-int39" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg39">
+                <button onclick="checkAnswer('neg39', 'She did not make a video for her social media last night')">Check</button>
+                <span id="feedback-neg39" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who39">
+                <button onclick="checkAnswer('who39', 'she')">Check</button>
+                <span id="feedback-who39" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what39">
+                <button onclick="checkAnswer('what39', 'a video')">Check</button>
+                <span id="feedback-what39" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where39">
+                <button onclick="checkAnswer('where39', 'for her social media')">Check</button>
+                <span id="feedback-where39" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when39">
+                <button onclick="checkAnswer('when39', 'last night')">Check</button>
+                <span id="feedback-when39" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 40 -->
+        <div class="exercise">
+            <div class="affirmative">40. They built a birdhouse in the backyard last weekend</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int40">
+                <button onclick="checkAnswer('int40', 'Did they build a birdhouse in the backyard last weekend')">Check</button>
+                <span id="feedback-int40" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg40">
+                <button onclick="checkAnswer('neg40', 'They did not build a birdhouse in the backyard last weekend')">Check</button>
+                <span id="feedback-neg40" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who40">
+                <button onclick="checkAnswer('who40', 'they')">Check</button>
+                <span id="feedback-who40" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what40">
+                <button onclick="checkAnswer('what40', 'a birdhouse')">Check</button>
+                <span id="feedback-what40" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where40">
+                <button onclick="checkAnswer('where40', 'in the backyard')">Check</button>
+                <span id="feedback-where40" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when40">
+                <button onclick="checkAnswer('when40', 'last weekend')">Check</button>
+                <span id="feedback-when40" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 41 -->
+        <div class="exercise">
+            <div class="affirmative">41. He wrote a story for the school magazine last month</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int41">
+                <button onclick="checkAnswer('int41', 'Did he write a story for the school magazine last month')">Check</button>
+                <span id="feedback-int41" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg41">
+                <button onclick="checkAnswer('neg41', 'He did not write a story for the school magazine last month')">Check</button>
+                <span id="feedback-neg41" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who41">
+                <button onclick="checkAnswer('who41', 'he')">Check</button>
+                <span id="feedback-who41" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what41">
+                <button onclick="checkAnswer('what41', 'a story')">Check</button>
+                <span id="feedback-what41" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where41">
+                <button onclick="checkAnswer('where41', 'for the school magazine')">Check</button>
+                <span id="feedback-where41" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when41">
+                <button onclick="checkAnswer('when41', 'last month')">Check</button>
+                <span id="feedback-when41" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 42 -->
+        <div class="exercise">
+            <div class="affirmative">42. The team won a game at the tournament last year</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int42">
+                <button onclick="checkAnswer('int42', 'Did the team win a game at the tournament last year')">Check</button>
+                <span id="feedback-int42" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg42">
+                <button onclick="checkAnswer('neg42', 'The team did not win a game at the tournament last year')">Check</button>
+                <span id="feedback-neg42" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who42">
+                <button onclick="checkAnswer('who42', 'the team')">Check</button>
+                <span id="feedback-who42" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what42">
+                <button onclick="checkAnswer('what42', 'a game')">Check</button>
+                <span id="feedback-what42" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where42">
+                <button onclick="checkAnswer('where42', 'at the tournament')">Check</button>
+                <span id="feedback-where42" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when42">
+                <button onclick="checkAnswer('when42', 'last year')">Check</button>
+                <span id="feedback-when42" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 43 -->
+        <div class="exercise">
+            <div class="affirmative">43. She made a painting in her studio last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int43">
+                <button onclick="checkAnswer('int43', 'Did she make a painting in her studio last week')">Check</button>
+                <span id="feedback-int43" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg43">
+                <button onclick="checkAnswer('neg43', 'She did not make a painting in her studio last week')">Check</button>
+                <span id="feedback-neg43" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who43">
+                <button onclick="checkAnswer('who43', 'she')">Check</button>
+                <span id="feedback-who43" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what43">
+                <button onclick="checkAnswer('what43', 'a painting')">Check</button>
+                <span id="feedback-what43" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where43">
+                <button onclick="checkAnswer('where43', 'in her studio')">Check</button>
+                <span id="feedback-where43" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when43">
+                <button onclick="checkAnswer('when43', 'last week')">Check</button>
+                <span id="feedback-when43" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 44 -->
+        <div class="exercise">
+            <div class="affirmative">44. They played tennis at the club Yesterday</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int44">
+                <button onclick="checkAnswer('int44', 'Did they play tennis at the club yesterday')">Check</button>
+                <span id="feedback-int44" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg44">
+                <button onclick="checkAnswer('neg44', 'They did not play tennis at the club yesterday')">Check</button>
+                <span id="feedback-neg44" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who44">
+                <button onclick="checkAnswer('who44', 'they')">Check</button>
+                <span id="feedback-who44" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what44">
+                <button onclick="checkAnswer('what44', 'tennis')">Check</button>
+                <span id="feedback-what44" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where44">
+                <button onclick="checkAnswer('where44', 'at the club')">Check</button>
+                <span id="feedback-where44" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when44">
+                <button onclick="checkAnswer('when44', 'yesterday')">Check</button>
+                <span id="feedback-when44" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 45 -->
+        <div class="exercise">
+            <div class="affirmative">45. He gave a presentation at the conference last month</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int45">
+                <button onclick="checkAnswer('int45', 'Did he give a presentation at the conference last month')">Check</button>
+                <span id="feedback-int45" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg45">
+                <button onclick="checkAnswer('neg45', 'He did not give a presentation at the conference last month')">Check</button>
+                <span id="feedback-neg45" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who45">
+                <button onclick="checkAnswer('who45', 'he')">Check</button>
+                <span id="feedback-who45" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what45">
+                <button onclick="checkAnswer('what45', 'a presentation')">Check</button>
+                <span id="feedback-what45" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where45">
+                <button onclick="checkAnswer('where45', 'at the conference')">Check</button>
+                <span id="feedback-where45" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when45">
+                <button onclick="checkAnswer('when45', 'last month')">Check</button>
+                <span id="feedback-when45" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 46 -->
+        <div class="exercise">
+            <div class="affirmative">46. The students participated in a science fair at school last week</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int46">
+                <button onclick="checkAnswer('int46', 'Did the students participate in a science fair at school last week')">Check</button>
+                <span id="feedback-int46" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg46">
+                <button onclick="checkAnswer('neg46', 'The students did not participate in a science fair at school last week')">Check</button>
+                <span id="feedback-neg46" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who46">
+                <button onclick="checkAnswer('who46', 'the students')">Check</button>
+                <span id="feedback-who46" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what46">
+                <button onclick="checkAnswer('what46', 'a science fair')">Check</button>
+                <span id="feedback-what46" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where46">
+                <button onclick="checkAnswer('where46', 'at school')">Check</button>
+                <span id="feedback-where46" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when46">
+                <button onclick="checkAnswer('when46', 'last week')">Check</button>
+                <span id="feedback-when46" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 47 -->
+        <div class="exercise">
+            <div class="affirmative">47. She learned how to swim at the pool last summer</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int47">
+                <button onclick="checkAnswer('int47', 'Did she learn how to swim at the pool last summer')">Check</button>
+                <span id="feedback-int47" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg47">
+                <button onclick="checkAnswer('neg47', 'She did not learn how to swim at the pool last summer')">Check</button>
+                <span id="feedback-neg47" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who47">
+                <button onclick="checkAnswer('who47', 'she')">Check</button>
+                <span id="feedback-who47" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what47">
+                <button onclick="checkAnswer('what47', 'how to swim')">Check</button>
+                <span id="feedback-what47" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where47">
+                <button onclick="checkAnswer('where47', 'at the pool')">Check</button>
+                <span id="feedback-where47" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when47">
+                <button onclick="checkAnswer('when47', 'last summer')">Check</button>
+                <span id="feedback-when47" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 48 -->
+        <div class="exercise">
+            <div class="affirmative">48. They built a model car in the garage last weekend</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int48">
+                <button onclick="checkAnswer('int48', 'Did they build a model car in the garage last weekend')">Check</button>
+                <span id="feedback-int48" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg48">
+                <button onclick="checkAnswer('neg48', 'They did not build a model car in the garage last weekend')">Check</button>
+                <span id="feedback-neg48" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who48">
+                <button onclick="checkAnswer('who48', 'they')">Check</button>
+                <span id="feedback-who48" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what48">
+                <button onclick="checkAnswer('what48', 'a model car')">Check</button>
+                <span id="feedback-what48" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where48">
+                <button onclick="checkAnswer('where48', 'in the garage')">Check</button>
+                <span id="feedback-where48" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when48">
+                <button onclick="checkAnswer('when48', 'last weekend')">Check</button>
+                <span id="feedback-when48" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 49 -->
+        <div class="exercise">
+            <div class="affirmative">49. He wrote a poem for the poetry contest last month</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int49">
+                <button onclick="checkAnswer('int49', 'Did he write a poem for the poetry contest last month')">Check</button>
+                <span id="feedback-int49" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg49">
+                <button onclick="checkAnswer('neg49', 'He did not write a poem for the poetry contest last month')">Check</button>
+                <span id="feedback-neg49" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who49">
+                <button onclick="checkAnswer('who49', 'he')">Check</button>
+                <span id="feedback-who49" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what49">
+                <button onclick="checkAnswer('what49', 'a poem')">Check</button>
+                <span id="feedback-what49" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where49">
+                <button onclick="checkAnswer('where49', 'for the poetry contest')">Check</button>
+                <span id="feedback-where49" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when49">
+                <button onclick="checkAnswer('when49', 'last month')">Check</button>
+                <span id="feedback-when49" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- Exercise 50 -->
+        <div class="exercise">
+            <div class="affirmative">50. The team played volleyball at the beach last summer</div>
+            <div class="question-container">
+                <span class="question-label">Int:</span>
+                <input type="text" id="int50">
+                <button onclick="checkAnswer('int50', 'Did the team play volleyball at the beach last summer')">Check</button>
+                <span id="feedback-int50" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Neg:</span>
+                <input type="text" id="neg50">
+                <button onclick="checkAnswer('neg50', 'The team did not play volleyball at the beach last summer')">Check</button>
+                <span id="feedback-neg50" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Who</span>
+                <input type="text" id="who50">
+                <button onclick="checkAnswer('who50', 'the team')">Check</button>
+                <span id="feedback-who50" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">What</span>
+                <input type="text" id="what50">
+                <button onclick="checkAnswer('what50', 'volleyball')">Check</button>
+                <span id="feedback-what50" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">Where</span>
+                <input type="text" id="where50">
+                <button onclick="checkAnswer('where50', 'at the beach')">Check</button>
+                <span id="feedback-where50" class="feedback"></span>
+            </div>
+            <div class="question-container">
+                <span class="question-label">When</span>
+                <input type="text" id="when50">
+                <button onclick="checkAnswer('when50', 'last summer')">Check</button>
+                <span id="feedback-when50" class="feedback"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(inputId, correctAnswer) {
+            const input = document.getElementById(inputId);
+            const userAnswer = input.value.trim().toLowerCase();
+            const correct = correctAnswer.trim().toLowerCase();
+            const feedbackId = 'feedback-' + inputId;
+            const feedbackElement = document.getElementById(feedbackId);
+            
+            // Clear previous feedback
+            feedbackElement.textContent = '';
+            feedbackElement.className = 'feedback';
+            
+            if (userAnswer === correct) {
+                feedbackElement.textContent = 'Correct';
+                feedbackElement.className += ' correct';
+            } else {
+                feedbackElement.textContent = 'Wrong';
+                feedbackElement.className += ' wrong';
+                const correctSpan = document.createElement('span');
+                correctSpan.textContent = correct;
+                correctSpan.className = 'correct-answer';
+                feedbackElement.appendChild(correctSpan);
+            }
+        }
+    </script>
+</body>
+</html>
